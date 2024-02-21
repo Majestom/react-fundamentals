@@ -27,10 +27,24 @@
       children: "Hello World",
       className: "container",
     };
-    const elementType = "h1";
+    const elementType = "div";
     const element = React.createElement(elementType, elementProps);
+    const spanProps1 = {
+      children: "Hello ",
+    };
+    const spanProps2 = {
+      children: "World",
+    };
     const root = ReactDOM.createRoot(rootElement);
-    root.render(element);
+    root.render(
+      React.createElement(
+        "div",
+        { className: "container" },
+        React.createElement("span", spanProps1),
+        React.createElement("span", spanProps2)
+      )
+    );
+    // root.render(element);
 
     // 🐨 Please re-implement the regular document.createElement code above
     // with these React API calls
